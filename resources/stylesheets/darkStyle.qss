@@ -1,0 +1,114 @@
+QWidget {
+    background-color: #2E2E2E;
+    color: #c8c8c8;
+}
+
+#lblStatusUsedBy {
+    color:rgb(70,150,250);
+}
+
+#specialLabel {
+    color:rgb(70,150,250);
+}
+QPushButton {
+	background:#4d4d4d;
+	border-radius:4px;
+	border: 1px solid #bcd4ff;
+	color:rgb(0, 0, 0);
+}
+QPushButton:hover {
+ 	background:rgba(228, 240, 255, 180);
+}
+QPushButton:pressed {
+	background:rgba(235, 235, 235, 180);
+}
+
+QLineEdit {
+ background-color:#4d4d4d;
+ border-radius: 3px;
+ padding-left: 4px;
+ image:non;
+}
+ QLineEdit:hover {
+ background:rgba(255, 255,255,40);
+}
+ QLineEdit::focus{
+ background:rgba(255, 255,255,40); 
+}
+
+QGroupBox {
+background-color:rgba(150, 150, 150, 50); 
+border-radius: 5px;
+}
+QGroupBox::title {
+    padding: 5 5 5 28 px;
+}
+
+QGroupBox#gbMainMethod {
+background-color:rgba(150, 150, 150, 0); 
+border-radius: 5px;
+}
+QGroupBox#gbMainMethod::title {
+    padding: 5 5 5 5 px;
+}
+
+QGroupBox#gbAddMethods {
+background-color:rgba(150, 150, 150, 0); 
+border-radius: 5px;
+}
+QGroupBox#gbAddMethods::title {
+    padding: 5 5 5 5 px;
+}
+
+QGroupBox#gbCameraTiggerMode {
+background-color:rgba(150, 150, 150, 0); 
+border-radius: 5px;
+}
+QGroupBox#gbCameraTiggerMode::title {
+    padding: 5 5 5 5 px;
+}
+
+QGroupBox#gbCameraExposure {
+background-color:rgba(150, 150, 150, 0); 
+border-radius: 5px;
+}
+QGroupBox#gbCameraExposure::title {
+    padding: 5 5 5 5 px;
+}
+
+QComboBox {
+    background-color:#4d4d4d;
+    border: none;
+	font: 20px 'Source Sans 3 Light';
+	border-radius: 5px;
+}
+
+QComboBox:hover {
+    background:rgba(255, 255,255,40); 
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 25px;
+    border: none;
+}
+
+QComboBox::down-arrow {
+    image: url(:/icons/down-arrow.png);
+    width: 20px;
+    height: 20px;
+}
+
+QComboBox QAbstractItemView {
+  	background-color:#4d4d4d;
+	color: #ffffff;
+    border: none;
+	border-radius: 0px;
+}
+
+QComboBox QAbstractItemView::item {
+    height: 15px;
+    padding: 5px;
+	font: 20px 'Roboto';
+}

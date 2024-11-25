@@ -1,0 +1,339 @@
+
+/* light.qss */
+QWidget {
+    background-color: rgb(200, 200, 200);
+	color:rgb(70, 70, 70);
+}
+
+QPushButton {
+	background:rgb(220, 220, 220);
+	border-radius:4px;
+	border: 1px solid #bcd4ff;
+	color:rgb(0, 0, 0);
+}
+QPushButton:hover {
+ 	background:rgba(228, 240, 255, 180);
+}
+QPushButton:pressed {
+	background:rgba(235, 235, 235, 180);
+}
+
+QLineEdit {
+ background:rgb(220, 220, 220);
+ border-radius: 3px;
+}
+ QLineEdit:hover {
+  background:rgb(230, 230,230);
+}
+ QLineEdit::focus{
+  background:rgb(240, 240,240);
+}
+
+QPlainTextEdit {
+ background:rgb(220, 220, 220);
+ border-radius: 3px;
+}
+ QLineEdit:hover {
+  background:rgb(230, 230,230);
+}
+ QLineEdit::focus{
+  background:rgb(240, 240,240);
+}
+
+QDateEdit {
+ background:rgb(220, 220, 220);
+ border-radius: 3px;
+}
+QDateEdit::up-button, QDateEdit::down-button {
+    border: none;
+    width: 20px;
+    height: 15px;
+}
+
+QDateEdit::up-arrow, QDateEdit::down-arrow {
+    width: 20px;
+    height: 15px;
+}
+QDateEdit::up-arrow {
+    image: url(:/icons/angle-small-up.png); /* optional, flacheres Icon */
+}
+
+QDateEdit::down-arrow {
+    image: url(:/icons/angle-small-Down.png); /* optional, flacheres Icon */
+}
+
+ QLineEdit:hover {
+  background:rgb(230, 230,230);
+}
+ QLineEdit::focus{
+  background:rgb(240, 240,240);
+}
+
+QGroupBox {
+background-color:rgb(220, 220, 220); 
+border-radius: 5px;
+}
+QGroupBox::title {
+    padding: 5 5 5 28 px;
+}
+
+QComboBox {
+	background:rgb(220, 220,220);
+    border: none;
+	font: 20px 'Source Sans 3 Light';
+	border-radius: 5px;
+}
+
+QComboBox:hover {
+    background:rgb(230, 230,230);
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 30px;
+    border: none;
+}
+
+QComboBox::down-arrow {
+    image: url(:/icons/down-arrow.png);
+    width: 35px;
+    height: 25px;
+}
+
+QComboBox QAbstractItemView {
+  	background:rgb(220, 220,220);
+	color: #000000;
+    border: none;
+	border-radius: 0px;
+}
+
+QComboBox QAbstractItemView::item {
+    height: 15px;
+    padding: 5px;
+	font: 20px 'Roboto';
+}
+
+QLable {
+ background:rgba(210, 210, 210, 0);
+}
+QScrollArea {
+ background:rgba(210, 210, 210, 0);
+ border:none;
+}
+
+QScrollBar:horizontal {
+ background-color: rgba(255, 255, 255, 0);
+ height: 25px;
+ margin: 0px 16 0px 16;
+ border: 0px solid #222222;
+ padding: 4px;
+}
+
+QScrollBar::handle:horizontal {
+ background-color:rgb(127, 127, 127);
+ min-width: 20px;
+ border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal:hover {
+ background-color:rgb(150, 150, 150);
+}
+
+QScrollBar::handle:horizontal:pressed {
+ background-color:rgb(127, 127, 127);
+}
+
+QScrollBar::add-line:horizontal {
+ border: 0px solid #1b1b19; 
+ background-color: rgba(255, 255, 255, 0);
+}
+
+QScrollBar::sub-line:horizontal {
+ background-color: rgba(255, 255, 255, 0);
+}
+
+
+QScrollBar::up-arrow:horizontal,
+QScrollBar::down-arrow:horizontal {
+ background-color: rgba(255, 255, 255, 0);
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+ background-color: rgba(255, 255, 255, 0);
+}
+
+QScrollBar:vertical {
+ background-color: rgba(209, 209, 209, 0);
+ width: 25px;
+ margin: 16px 0 16px 0;
+ border: 0px solid #222222;
+ padding: 4px;
+}
+
+QScrollBar::handle:vertical {
+ background-color:rgb(127, 127, 127);
+ min-height: 28px;
+ border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+ background-color:rgb(150, 150, 150);
+}
+
+QScrollBar::handle:vertical:pressed {
+ background-color:rgb(127, 127, 127);
+}
+
+QScrollBar::add-line:vertical {
+ border: 0px solid #1b1b19; 
+ background-color: rgba(255, 255, 255, 0);
+}
+
+QScrollBar::sub-line:vertical {
+ background-color: rgba(255, 255, 255, 0);
+}
+
+
+QScrollBar::up-arrow:vertical,
+QScrollBar::down-arrow:vertical {
+ background-color: rgba(255, 255, 255, 0);
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+ background-color: rgba(255, 255, 255, 0);
+}
+
+/* Grundstil für QTreeWidget */
+QTreeWidget {
+    background-color: rgba(255, 255, 255, 0);
+    color: #717171;
+    alternate-background-color:rgb(232, 232, 232);
+    outline: 0;
+}
+
+/* Stil für die Kopfzeile */
+QTreeWidget::header {
+    background-color: rgb(209, 209, 209);
+    font-weight: bold;
+}
+
+QHeaderView::section {
+    background-color: rgb(209, 209, 209);
+    color: #717171;
+    border: none;
+    padding-left: 85px;
+}
+
+QHeaderView::section:horizontal:first {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+QHeaderView::section:horizontal:last {
+    border-right: none;
+}
+
+/* Stil für übergeordnete Elemente (Top-Level-Elemente) */
+QTreeWidget::item {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+QTreeWidget::item:has-children {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+QTreeWidget::item:has-children:open {
+      background-color:rgb(210, 210, 210);
+	  color: rgb(0, 0, 0);
+}
+
+/* Hover-Effekt */
+QTreeWidget::item:hover {
+    background-color: rgb(38, 103, 194);
+	color: rgb(255, 255, 255);
+}
+
+/* Ausgewählte Elemente */
+QTreeWidget::item:selected {
+     background-color:rgb(30, 80, 150);
+     color: rgb(255, 255, 255);
+}
+/* Stil für untergeordnete Elemente (Child-Items) */
+QTreeWidget::item:!has-children {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+/* Hover-Effekt */
+QTreeWidget::item:!has-children:hover {
+    background-color: rgb(38, 103, 194);
+	color: rgb(255, 255, 255);
+}
+
+/* Ausgewählte Elemente */
+QTreeWidget::item:!has-children:selected {
+     background-color:rgb(30, 80, 150);
+     color: rgb(255, 255, 255);
+}
+
+QTreeWidget::branch:selected {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+QTreeWidget::branch:!selected {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+QTreeWidget::branch:has-siblings:!adjoins-item {
+  border-image: url(:/icons/ic_treeview_branch_vline);
+}
+QTreeWidget::branch:has-siblings:adjoins-item {
+  border-image: url(:/icons/ic_treeview_branch_more);
+}
+QTreeWidget::branch:!has-children:!has-siblings:adjoins-item {
+  border-image: url(:/icons/ic_treeview_branch_end);
+}
+
+QTreeWidget::branch:has-children:!has-siblings:closed,
+QTreeWidget::branch:closed:has-children:has-siblings {
+  border-image: none;
+  image: url(:/icons/ic_treeview_branch_closed);
+}
+QTreeWidget::branch:open:has-children:!has-siblings,
+QTreeWidget::branch:open:has-children:has-siblings  {
+  border-image: none;
+  image: url(:/icons/ic_treeview_branch_open);
+}
+
+QSplitter::handle {
+    background-color: rgba(100, 100, 100,0);
+    width: 5px;
+}
+QSplitter::handle:hover {
+    background-color: rgb(150, 150, 150);
+}
+
+QCheckBox:unchecked{
+background:rgba(255, 255, 255, 0);
+}
+
+QCheckBox:checked{
+background:rgba(255, 255, 255, 0);
+}
+QCheckBox::indicator:unchecked {
+	image:url(:/icons/nok.png);
+ 	border: 0px solid rgb(219, 6, 27);
+ 	width:50px;
+	height:45px;
+}
+QCheckBox::indicator:checked {
+   	image:url(:/icons/ok.png);
+	 border: 0px solid #75c752;
+ 	width:50px;
+	height:45px;
+}
