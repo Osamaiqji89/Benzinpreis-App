@@ -10,18 +10,13 @@
 
 ---
 
-## Author
-
-- Author one
-- Author two
-
----
-
 ## Setup
 
 Follow these steps to set up and run the project:
 
 ### Prerequisites
+
+loadUi("resources/ui/mainWindow.ui", self)
 
 Ensure you have the following installed on your machine:
 
@@ -82,6 +77,14 @@ This project is licensed under the [MIT License](LICENSE) – feel free to use, 
 ## Contribution
 
 Contributions are welcome! Please feel free to open issues or submit pull requests.
+
+---
+
+## Author
+
+- Author one
+- Author two
+
 
 ---
 
