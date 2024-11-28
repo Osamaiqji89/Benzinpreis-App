@@ -1,11 +1,19 @@
 # Project Name
 
 *todo*
+
 ---
 
 ## Description
 
 *todo*
+
+---
+
+## Author
+
+- Author one
+- Author two
 
 ---
 
@@ -62,15 +70,6 @@ Ensure you have the following installed on your machine:
    ```bash
    python main.py
    ```
-
----
-
-## Author
-
-- **Your Name**  
-  Co-founder at [SemaByte](https://www.semabyte.com/)  
-  Based in Germany  
-  Specialized in Data Science, AI, web and mobile development, MLOps, and DevOps.
 
 ---
 
