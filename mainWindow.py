@@ -1,86 +1,105 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLineEdit, QGridLayout, QPushButton, QTextEdit, QListWidget
+from PyQt6.QtCore import QUrl
 from PyQt6 import uic
-from PyQt6.uic import loadUi
-import urllib.request
-import json
-import ssl
 import os
+from PyQt6.uic import loadUi
 from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv("resources/env/tankerkoenig.env")
-
-# Retrieve credentials
-apikey = os.getenv('API_KEY')
-
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
-
-# Abfragen der Tankerkoenig API.
-# https://creativecommons.tankerkoenig.de/
-
-home = "https://creativecommons.tankerkoenig.de/json/"
-func = "list.php?"
-lat = 51.3765096 
-lon = 7.6960842
-#rad = 40
+import folium
+from PyQt6.QtWebEngineWidgets import QWebEngineView
+from geopy.geocoders import Nominatim
+from LocationService import LocationService
+from StationDataFetcher import StationDataFetcher
+from MapManager import MapManager
+from UIHelper import UIHelper
+from PyQt6.QtWidgets import QTableWidgetItem
+from PyQt6.QtWidgets import QTableWidget, QTableWidgetItem, QHeaderView
+from PyQt6.QtCore import Qt
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(QMainWindow, self).__init__()
+        loadUi("resources/ui/mainWindow.ui", self)
+        load_dotenv("resources/env/tankerkoenig.env")
+        
         self.setWindowTitle("Benzinpreis App")
-        self.setGeometry(200, 200, 400, 600)
-        #self.initUI()
-        loadUi("resources/ui/mainWindow.ui", self) 
-        self.apply_stylesheet()
-        
-        self.radius_input.setPlaceholderText("Suchradius in km (z. B. 5)")
+        self.setGeometry(200, 200, 1200, 800)
+        self.api_key = os.getenv("API_KEY")
+        self.radius = 5
+        self.fetcher = StationDataFetcher(self.api_key)
+        self.location_service = LocationService()
+        self.map_view = QWebEngineView()
+        self.gridLayout_3.addWidget(self.map_view)
+        self.map_manager = MapManager(self.map_view)
+        self.setup_connectiions()
+        self.setup_ui()
 
-        # Button
-        self.search_button.clicked.connect(self.search_stations)
+    def setup_ui(self):
+        header = self.station_Table.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.ResizeMode.Stretch)
+        self.btnDiesel.setChecked(True)
+        UIHelper.apply_stylesheet(self, "resources/stylesheets/lightStyle.qss")
+        self.go_to_my_location()
 
-        # Ausgabe
-        #self.result_output.setReadOnly(True)
-    def apply_stylesheet(self):
-        with open("resources/stylesheets/lightStyle.qss", "r") as file:
-            stylesheet = file.read()
-            self.setStyleSheet(stylesheet)
+    def setup_connectiions(self):
+        self.horiSliderRadius.valueChanged.connect(self.update_radius)
+        self.search_button.clicked.connect(self.go_to_my_location)
+        self.edtSearch.returnPressed.connect(self.search_stations_by_city_or_zip)
+        self.btnDiesel.clicked.connect(self.on_Diesele_clicked)
+        self.btnSuperE10.clicked.connect(self.on_SuperE10_clicked)
+        self.btnSuperPlus.clicked.connect(self.on_SuperPlus_clicked)
 
-    def search_stations(self):
-        # Nur den Radius aus dem Eingabefeld holen
-        rad = self.radius_input.text()
-        loca = f"lat={lat}&lng={lon}&rad={rad}"
-        opti = "&sort=price&type=diesel&apikey="
+    def update_radius(self):
+        self.radius = self.horiSliderRadius.value()
+        lat, lon = self.location_service.get_lat_lon()
+        self.load_stations_and_map(lat, lon, self.radius)
+        self.lblRadius.setText(f"Suchradius: {self.radius} km")
 
-        url = home + func + loca + opti + apikey
-        html = urllib.request.urlopen(url, context=ctx).read()
-        data = json.loads(html)
-        if not rad:
-            self.station_list.addItem("Bitte den Radius eingeben.")
-            return
-        
-        try:
-            # Tankstellen-Daten abrufen
-            loca = f"lat={lat}&lng={lon}&rad={rad}"
-            opti = f"&sort=price&type=diesel&apikey={apikey}"
-            url = home + func + loca + opti
-            html = urllib.request.urlopen(url, context=ctx).read()
-            data = json.loads(html)
+    def go_to_my_location(self):
+        lat, lon = self.location_service.get_location_by_ip()
+        self.radius = self.horiSliderRadius.value()
+        self.load_stations_and_map(lat, lon, self.radius)
+        self.lblRadius.setText(f"Suchradius: {self.radius} km")
 
-            # Ergebnisse in der ListBox anzeigen
-            self.station_list.clear()
-            if 'stations' not in data:
-                self.station_list.addItem("Keine Tankstellen gefunden.")
-                return
+    def search_stations_by_city_or_zip(self):
+        city_or_zip = self.edtSearch.text().strip()
+        lat, lon = self.location_service.lon_lat_city(city_or_zip)
+        self.load_stations_and_map(lat, lon, self.radius)
 
-            for ts in data['stations']:
-                station_info = f"{ts['place']}, {ts['street']} {ts['houseNumber']}: {ts['name']}"
-                self.station_list.addItem(station_info)
+    def load_stations_and_map(self, lat, lon, rad):
+        fuel_type = self.get_fuel_type()
+        stations = self.fetcher.fetch_stations(lat, lon, fuel_type, rad)
+        UIHelper.populate_station_table(self.station_Table, stations)
+        self.map_manager.create_map(stations, lat, lon, rad)
 
-        except Exception as e:
-            self.station_list.clear()
-            self.station_list.addItem(f"Fehler beim Abrufen der Daten: {e}")
-            print(f"Error: {e}")  # Print the error for debugging
+    def get_fuel_type(self):
+        if self.btnDiesel.isChecked():
+            return "diesel"
+        elif self.btnSuperE10.isChecked():
+            return "e10"
+        elif self.btnSuperPlus.isChecked():
+            return "e5"
+        else:
+            return None
+
+    def on_Diesele_clicked(self):
+        lat, lon = self.location_service.get_lat_lon()
+        self.load_stations_and_map(lat, lon, self.radius)
+        self.btnDiesel.setChecked(True)
+        self.btnSuperE10.setChecked(False)
+        self.btnSuperPlus.setChecked(False)
+
+    def on_SuperE10_clicked(self):
+        lat, lon = self.location_service.get_lat_lon()
+        self.load_stations_and_map(lat, lon, self.radius)
+        self.btnDiesel.setChecked(False)
+        self.btnSuperE10.setChecked(True)
+        self.btnSuperPlus.setChecked(False)
+
+    def on_SuperPlus_clicked(self):
+        lat, lon = self.location_service.get_lat_lon()
+        self.load_stations_and_map(lat, lon, self.radius)
+        self.btnDiesel.setChecked(False)
+        self.btnSuperE10.setChecked(False)
+        self.btnSuperPlus.setChecked(True)

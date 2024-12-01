@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e95230bd9c1b643bb6a87ce5eedaab5e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e95230bd9c1b643bb6a87ce5eedaab5e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e95230bd9c1b643bb6a87ce5eedaab5e = L.map(
+                "map_e95230bd9c1b643bb6a87ce5eedaab5e",
+                {
+                    center: [51.9042, 10.4277],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11.0,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_620fd353a7ecd494ae19cccf1ba4ae68 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_620fd353a7ecd494ae19cccf1ba4ae68.addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+            var marker_810551b8f40c53aff965c8f379001cbf = L.marker(
+                [51.88651, 10.55751],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_b6227abf6c3846423b0943e80dc2fbfe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5370a87d1e4f0d659f2eb1d9ad916ce8 = $(`<div id="html_5370a87d1e4f0d659f2eb1d9ad916ce8" style="width: 100.0%; height: 100.0%;">CLASSIC Bad Harzburg<br>Preis: 1.009 €</div>`)[0];
+                popup_b6227abf6c3846423b0943e80dc2fbfe.setContent(html_5370a87d1e4f0d659f2eb1d9ad916ce8);
+            
+        
+
+        marker_810551b8f40c53aff965c8f379001cbf.bindPopup(popup_b6227abf6c3846423b0943e80dc2fbfe)
+        ;
+
+        
+    
+    
+            marker_810551b8f40c53aff965c8f379001cbf.bindTooltip(
+                `<div>
+                     CLASSIC Bad Harzburg
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8cc5a8d88dd23f06f2bf86a2eafe061f = L.marker(
+                [51.8688, 10.5594],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_080d1b1deae2677496e8d9b28aebc6e5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ec9916eb5c03f4321372fc7c9b52b695 = $(`<div id="html_ec9916eb5c03f4321372fc7c9b52b695" style="width: 100.0%; height: 100.0%;">Q1 Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_080d1b1deae2677496e8d9b28aebc6e5.setContent(html_ec9916eb5c03f4321372fc7c9b52b695);
+            
+        
+
+        marker_8cc5a8d88dd23f06f2bf86a2eafe061f.bindPopup(popup_080d1b1deae2677496e8d9b28aebc6e5)
+        ;
+
+        
+    
+    
+            marker_8cc5a8d88dd23f06f2bf86a2eafe061f.bindTooltip(
+                `<div>
+                     Q1 Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9a575b3b8319c09acd5e040b73ed0b86 = L.marker(
+                [51.954345, 10.564469],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_1877073fcf8a5c336119f960f2d23f22 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f65158db130d877c429e598ac339a3ab = $(`<div id="html_f65158db130d877c429e598ac339a3ab" style="width: 100.0%; height: 100.0%;">star Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_1877073fcf8a5c336119f960f2d23f22.setContent(html_f65158db130d877c429e598ac339a3ab);
+            
+        
+
+        marker_9a575b3b8319c09acd5e040b73ed0b86.bindPopup(popup_1877073fcf8a5c336119f960f2d23f22)
+        ;
+
+        
+    
+    
+            marker_9a575b3b8319c09acd5e040b73ed0b86.bindTooltip(
+                `<div>
+                     star Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f21b8c49d86e748dd6833979ddff0419 = L.marker(
+                [51.820247, 10.340674],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_896d4a8993c5a628a1afd29d710069fb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_77a2ba589ca25a5c445207ec10a06e53 = $(`<div id="html_77a2ba589ca25a5c445207ec10a06e53" style="width: 100.0%; height: 100.0%;">Clausthal-Zellerfeld, Goslarsche St<br>Preis: 1.009 €</div>`)[0];
+                popup_896d4a8993c5a628a1afd29d710069fb.setContent(html_77a2ba589ca25a5c445207ec10a06e53);
+            
+        
+
+        marker_f21b8c49d86e748dd6833979ddff0419.bindPopup(popup_896d4a8993c5a628a1afd29d710069fb)
+        ;
+
+        
+    
+    
+            marker_f21b8c49d86e748dd6833979ddff0419.bindTooltip(
+                `<div>
+                     Clausthal-Zellerfeld, Goslarsche St
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_129080f793c0b024a3aacb7bfcc5b97d = L.marker(
+                [51.798619, 10.341589],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_d0757c5107032f57f7f57ad355404661 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b672fa8736ff6d12a6f23f5efbeb2cb = $(`<div id="html_9b672fa8736ff6d12a6f23f5efbeb2cb" style="width: 100.0%; height: 100.0%;">Shell Clausthal-Zellerfeld Andreasberger Str. 10 A<br>Preis: 1.009 €</div>`)[0];
+                popup_d0757c5107032f57f7f57ad355404661.setContent(html_9b672fa8736ff6d12a6f23f5efbeb2cb);
+            
+        
+
+        marker_129080f793c0b024a3aacb7bfcc5b97d.bindPopup(popup_d0757c5107032f57f7f57ad355404661)
+        ;
+
+        
+    
+    
+            marker_129080f793c0b024a3aacb7bfcc5b97d.bindTooltip(
+                `<div>
+                     Shell Clausthal-Zellerfeld Andreasberger Str. 10 A
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ea207de6014613dc76dc74beb124caba = L.marker(
+                [51.89044, 10.543603],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_e585d727db5293b8407bdd21e58d0561 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_06ad427f92b3afbb3e9001904f5e8000 = $(`<div id="html_06ad427f92b3afbb3e9001904f5e8000" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_e585d727db5293b8407bdd21e58d0561.setContent(html_06ad427f92b3afbb3e9001904f5e8000);
+            
+        
+
+        marker_ea207de6014613dc76dc74beb124caba.bindPopup(popup_e585d727db5293b8407bdd21e58d0561)
+        ;
+
+        
+    
+    
+            marker_ea207de6014613dc76dc74beb124caba.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bf7b15d53d22a6e6e6287722e81024ea = L.marker(
+                [51.821125, 10.342064],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_006e1962250fc0732ffb90e2e68c998a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7866c118aa4adf44c00f800439289d22 = $(`<div id="html_7866c118aa4adf44c00f800439289d22" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_006e1962250fc0732ffb90e2e68c998a.setContent(html_7866c118aa4adf44c00f800439289d22);
+            
+        
+
+        marker_bf7b15d53d22a6e6e6287722e81024ea.bindPopup(popup_006e1962250fc0732ffb90e2e68c998a)
+        ;
+
+        
+    
+    
+            marker_bf7b15d53d22a6e6e6287722e81024ea.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6bcd53ac6f2eb766f660a75cf94ef762 = L.marker(
+                [52.0068, 10.37864],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_bccd9ffc48c1336832cced5b2f615131 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b23651103a20d05dfe951ef09526d2a = $(`<div id="html_9b23651103a20d05dfe951ef09526d2a" style="width: 100.0%; height: 100.0%;">AGRAVIS Niedersachsen Süd GmbH<br>Preis: 1.009 €</div>`)[0];
+                popup_bccd9ffc48c1336832cced5b2f615131.setContent(html_9b23651103a20d05dfe951ef09526d2a);
+            
+        
+
+        marker_6bcd53ac6f2eb766f660a75cf94ef762.bindPopup(popup_bccd9ffc48c1336832cced5b2f615131)
+        ;
+
+        
+    
+    
+            marker_6bcd53ac6f2eb766f660a75cf94ef762.bindTooltip(
+                `<div>
+                     AGRAVIS Niedersachsen Süd GmbH
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_79f6ca394377e8944b76e5e0b357df99 = L.marker(
+                [52.026141, 10.432697],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_7d10f947ab0a5fba67772ee837236838 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_139680eab59cb23bdbdfba5a66fbe04f = $(`<div id="html_139680eab59cb23bdbdfba5a66fbe04f" style="width: 100.0%; height: 100.0%;">star Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_7d10f947ab0a5fba67772ee837236838.setContent(html_139680eab59cb23bdbdfba5a66fbe04f);
+            
+        
+
+        marker_79f6ca394377e8944b76e5e0b357df99.bindPopup(popup_7d10f947ab0a5fba67772ee837236838)
+        ;
+
+        
+    
+    
+            marker_79f6ca394377e8944b76e5e0b357df99.bindTooltip(
+                `<div>
+                     star Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1b7f8948312d420957a9b73d63fdbc37 = L.marker(
+                [52.02925, 10.53539444],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_07b6caaea4f650e3f510781f45e928d5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_53bca177eca38c76b817c7a033f33ff2 = $(`<div id="html_53bca177eca38c76b817c7a033f33ff2" style="width: 100.0%; height: 100.0%;">Schladen, Im Gewerbegebiet 2<br>Preis: 1.009 €</div>`)[0];
+                popup_07b6caaea4f650e3f510781f45e928d5.setContent(html_53bca177eca38c76b817c7a033f33ff2);
+            
+        
+
+        marker_1b7f8948312d420957a9b73d63fdbc37.bindPopup(popup_07b6caaea4f650e3f510781f45e928d5)
+        ;
+
+        
+    
+    
+            marker_1b7f8948312d420957a9b73d63fdbc37.bindTooltip(
+                `<div>
+                     Schladen, Im Gewerbegebiet 2
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_abe8640fd0175ff462ad35a927ab7f2c = L.marker(
+                [51.9257, 10.3802],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_c0423e1ef57eb8be23359e74849dcae6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_64d5aaba2ff5a9cb0481b16a67d576b1 = $(`<div id="html_64d5aaba2ff5a9cb0481b16a67d576b1" style="width: 100.0%; height: 100.0%;">Tankstelle Langelsheim-Astfeld<br>Preis: 1.009 €</div>`)[0];
+                popup_c0423e1ef57eb8be23359e74849dcae6.setContent(html_64d5aaba2ff5a9cb0481b16a67d576b1);
+            
+        
+
+        marker_abe8640fd0175ff462ad35a927ab7f2c.bindPopup(popup_c0423e1ef57eb8be23359e74849dcae6)
+        ;
+
+        
+    
+    
+            marker_abe8640fd0175ff462ad35a927ab7f2c.bindTooltip(
+                `<div>
+                     Tankstelle Langelsheim-Astfeld
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_96fd208fe1fe497b8e588bf9184e30f3 = L.marker(
+                [51.912685, 10.440884],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_c9ffdf69cdd61322d3cc0cf80f8903b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f00797ce44bda607b3d30020b910d1c8 = $(`<div id="html_f00797ce44bda607b3d30020b910d1c8" style="width: 100.0%; height: 100.0%;">Goslar, Okerstr. 12<br>Preis: 1.009 €</div>`)[0];
+                popup_c9ffdf69cdd61322d3cc0cf80f8903b3.setContent(html_f00797ce44bda607b3d30020b910d1c8);
+            
+        
+
+        marker_96fd208fe1fe497b8e588bf9184e30f3.bindPopup(popup_c9ffdf69cdd61322d3cc0cf80f8903b3)
+        ;
+
+        
+    
+    
+            marker_96fd208fe1fe497b8e588bf9184e30f3.bindTooltip(
+                `<div>
+                     Goslar, Okerstr. 12
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8c5aec6898f952a8c320b6dcd46b9582 = L.marker(
+                [51.90996666, 10.47050833],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_e23d00831cfdf1c36cf764e6cf8f9264 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9124a1e6914e694dde35cf0405800265 = $(`<div id="html_9124a1e6914e694dde35cf0405800265" style="width: 100.0%; height: 100.0%;">Goslar, Im Schleeke 45<br>Preis: 1.009 €</div>`)[0];
+                popup_e23d00831cfdf1c36cf764e6cf8f9264.setContent(html_9124a1e6914e694dde35cf0405800265);
+            
+        
+
+        marker_8c5aec6898f952a8c320b6dcd46b9582.bindPopup(popup_e23d00831cfdf1c36cf764e6cf8f9264)
+        ;
+
+        
+    
+    
+            marker_8c5aec6898f952a8c320b6dcd46b9582.bindTooltip(
+                `<div>
+                     Goslar, Im Schleeke 45
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7d0426ee58751911ca89d7a328372f4c = L.marker(
+                [51.93063, 10.41366],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_b9ff63882dadfc8430adba16fbe5cbf7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fddc9d52e5a86bf710644f41ecaf646a = $(`<div id="html_fddc9d52e5a86bf710644f41ecaf646a" style="width: 100.0%; height: 100.0%;">Raiffeisen Enovia GmbH & Co. KG<br>Preis: 1.009 €</div>`)[0];
+                popup_b9ff63882dadfc8430adba16fbe5cbf7.setContent(html_fddc9d52e5a86bf710644f41ecaf646a);
+            
+        
+
+        marker_7d0426ee58751911ca89d7a328372f4c.bindPopup(popup_b9ff63882dadfc8430adba16fbe5cbf7)
+        ;
+
+        
+    
+    
+            marker_7d0426ee58751911ca89d7a328372f4c.bindTooltip(
+                `<div>
+                     Raiffeisen Enovia GmbH & Co. KG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_632fc4e59bc524e124178a5f8d27698a = L.marker(
+                [51.886838, 10.557402],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_6a27eef10067ff85959d6080012c4dce = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a1227b4332821821fdf4d8be3ca2db2e = $(`<div id="html_a1227b4332821821fdf4d8be3ca2db2e" style="width: 100.0%; height: 100.0%;">star Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_6a27eef10067ff85959d6080012c4dce.setContent(html_a1227b4332821821fdf4d8be3ca2db2e);
+            
+        
+
+        marker_632fc4e59bc524e124178a5f8d27698a.bindPopup(popup_6a27eef10067ff85959d6080012c4dce)
+        ;
+
+        
+    
+    
+            marker_632fc4e59bc524e124178a5f8d27698a.bindTooltip(
+                `<div>
+                     star Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0f31b8590b33b566531d2ac8759fc11 = L.marker(
+                [51.907543, 10.438619],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_97e43fe6ea646be7405f6c1e418d0d90 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e7727f98d0d9dc52012c233ec5b022b5 = $(`<div id="html_e7727f98d0d9dc52012c233ec5b022b5" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_97e43fe6ea646be7405f6c1e418d0d90.setContent(html_e7727f98d0d9dc52012c233ec5b022b5);
+            
+        
+
+        marker_e0f31b8590b33b566531d2ac8759fc11.bindPopup(popup_97e43fe6ea646be7405f6c1e418d0d90)
+        ;
+
+        
+    
+    
+            marker_e0f31b8590b33b566531d2ac8759fc11.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_238be0dc2922949371a208a4e4c719d9 = L.marker(
+                [51.912697, 10.421956],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_282fb39411bf8376272cd043d0fa8e32 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9331a85830bcc74b2c7fe04c3b488418 = $(`<div id="html_9331a85830bcc74b2c7fe04c3b488418" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_282fb39411bf8376272cd043d0fa8e32.setContent(html_9331a85830bcc74b2c7fe04c3b488418);
+            
+        
+
+        marker_238be0dc2922949371a208a4e4c719d9.bindPopup(popup_282fb39411bf8376272cd043d0fa8e32)
+        ;
+
+        
+    
+    
+            marker_238be0dc2922949371a208a4e4c719d9.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a46be08937b0fac1693c4ce6a10773bc = L.marker(
+                [51.922005, 10.438066],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_b6e02fa783cb0e485671d5b4c0bda0bf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fbccbf9843fea6dca8ba8b9db66cfd3f = $(`<div id="html_fbccbf9843fea6dca8ba8b9db66cfd3f" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_b6e02fa783cb0e485671d5b4c0bda0bf.setContent(html_fbccbf9843fea6dca8ba8b9db66cfd3f);
+            
+        
+
+        marker_a46be08937b0fac1693c4ce6a10773bc.bindPopup(popup_b6e02fa783cb0e485671d5b4c0bda0bf)
+        ;
+
+        
+    
+    
+            marker_a46be08937b0fac1693c4ce6a10773bc.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9cb69e6f98e7d4fa8488433c93a4dd3b = L.marker(
+                [51.93345, 10.345752],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_8846a55642e2075169bf97de3cacf44f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_356fb51c3a065f4b972961dbc996a148 = $(`<div id="html_356fb51c3a065f4b972961dbc996a148" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_8846a55642e2075169bf97de3cacf44f.setContent(html_356fb51c3a065f4b972961dbc996a148);
+            
+        
+
+        marker_9cb69e6f98e7d4fa8488433c93a4dd3b.bindPopup(popup_8846a55642e2075169bf97de3cacf44f)
+        ;
+
+        
+    
+    
+            marker_9cb69e6f98e7d4fa8488433c93a4dd3b.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1803fa9b36bf4a1465266c0fff58989b = L.marker(
+                [52.042154, 10.361655],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_2e5f3e4c6e62b2b4f87b930cd2da7613 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f5180a5ed6b023d9ad54a12ece4b978d = $(`<div id="html_f5180a5ed6b023d9ad54a12ece4b978d" style="width: 100.0%; height: 100.0%;">Shell Salzgitter Hinter D. Salze 109<br>Preis: 1.009 €</div>`)[0];
+                popup_2e5f3e4c6e62b2b4f87b930cd2da7613.setContent(html_f5180a5ed6b023d9ad54a12ece4b978d);
+            
+        
+
+        marker_1803fa9b36bf4a1465266c0fff58989b.bindPopup(popup_2e5f3e4c6e62b2b4f87b930cd2da7613)
+        ;
+
+        
+    
+    
+            marker_1803fa9b36bf4a1465266c0fff58989b.bindTooltip(
+                `<div>
+                     Shell Salzgitter Hinter D. Salze 109
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_10bf0a9947a8cdcfb53f3fa7e6b9ef8b = L.marker(
+                [51.954336, 10.56517],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_df38e65e27b42e80042ab6fd0d1efe22 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1e8f6991c0f6d6d99c316a92b43e9e72 = $(`<div id="html_1e8f6991c0f6d6d99c316a92b43e9e72" style="width: 100.0%; height: 100.0%;">Esso Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_df38e65e27b42e80042ab6fd0d1efe22.setContent(html_1e8f6991c0f6d6d99c316a92b43e9e72);
+            
+        
+
+        marker_10bf0a9947a8cdcfb53f3fa7e6b9ef8b.bindPopup(popup_df38e65e27b42e80042ab6fd0d1efe22)
+        ;
+
+        
+    
+    
+            marker_10bf0a9947a8cdcfb53f3fa7e6b9ef8b.bindTooltip(
+                `<div>
+                     Esso Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dd5d5889c5969b9c1a1cf262e980d3f6 = L.marker(
+                [51.804634, 10.330375],
+                {}
+            ).addTo(map_e95230bd9c1b643bb6a87ce5eedaab5e);
+        
+    
+        var popup_6de9f00ae185e8ee8a573aa7266fc4ad = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9dc52c3424b77789ad9d823a7191ebd2 = $(`<div id="html_9dc52c3424b77789ad9d823a7191ebd2" style="width: 100.0%; height: 100.0%;">TAS Clausthal-Zellerfeld<br>Preis: 1.009 €</div>`)[0];
+                popup_6de9f00ae185e8ee8a573aa7266fc4ad.setContent(html_9dc52c3424b77789ad9d823a7191ebd2);
+            
+        
+
+        marker_dd5d5889c5969b9c1a1cf262e980d3f6.bindPopup(popup_6de9f00ae185e8ee8a573aa7266fc4ad)
+        ;
+
+        
+    
+    
+            marker_dd5d5889c5969b9c1a1cf262e980d3f6.bindTooltip(
+                `<div>
+                     TAS Clausthal-Zellerfeld
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
