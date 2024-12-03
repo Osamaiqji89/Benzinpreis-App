@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_26577c088fbc0c0bbe959ae6dda1685e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_26577c088fbc0c0bbe959ae6dda1685e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_26577c088fbc0c0bbe959ae6dda1685e = L.map(
+                "map_26577c088fbc0c0bbe959ae6dda1685e",
+                {
+                    center: [51.9042, 10.4277],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12.375,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ba1e412d421ad8d651f89a1a32e6403e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_ba1e412d421ad8d651f89a1a32e6403e.addTo(map_26577c088fbc0c0bbe959ae6dda1685e);
+        
+    
+            var marker_e2dab02bdd4f9fb698ad2743baae5479 = L.marker(
+                [51.9257, 10.3802],
+                {}
+            ).addTo(map_26577c088fbc0c0bbe959ae6dda1685e);
+        
+    
+        var popup_7b1b2c61ca89e66e4c3033fe532fdb2d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fff96ec97a46bf77b061158363a8a41d = $(`<div id="html_fff96ec97a46bf77b061158363a8a41d" style="width: 100.0%; height: 100.0%;">Tankstelle Langelsheim-Astfeld<br>Preis: 1.009 €</div>`)[0];
+                popup_7b1b2c61ca89e66e4c3033fe532fdb2d.setContent(html_fff96ec97a46bf77b061158363a8a41d);
+            
+        
+
+        marker_e2dab02bdd4f9fb698ad2743baae5479.bindPopup(popup_7b1b2c61ca89e66e4c3033fe532fdb2d)
+        ;
+
+        
+    
+    
+            marker_e2dab02bdd4f9fb698ad2743baae5479.bindTooltip(
+                `<div>
+                     Tankstelle Langelsheim-Astfeld
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4cc07f43db351785ea362b8a2460703f = L.marker(
+                [51.912685, 10.440884],
+                {}
+            ).addTo(map_26577c088fbc0c0bbe959ae6dda1685e);
+        
+    
+        var popup_41c715e6d254560b917ccc4caa92cae8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1122e932d029ce92c9db2986784cc971 = $(`<div id="html_1122e932d029ce92c9db2986784cc971" style="width: 100.0%; height: 100.0%;">Goslar, Okerstr. 12<br>Preis: 1.009 €</div>`)[0];
+                popup_41c715e6d254560b917ccc4caa92cae8.setContent(html_1122e932d029ce92c9db2986784cc971);
+            
+        
+
+        marker_4cc07f43db351785ea362b8a2460703f.bindPopup(popup_41c715e6d254560b917ccc4caa92cae8)
+        ;
+
+        
+    
+    
+            marker_4cc07f43db351785ea362b8a2460703f.bindTooltip(
+                `<div>
+                     Goslar, Okerstr. 12
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_40b6274baff248f26d25496c81e922f4 = L.marker(
+                [51.90996666, 10.47050833],
+                {}
+            ).addTo(map_26577c088fbc0c0bbe959ae6dda1685e);
+        
+    
+        var popup_8584310fca4588b5bdd9375b62225d0e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_633accfd9c162496926a6a9b068b9caa = $(`<div id="html_633accfd9c162496926a6a9b068b9caa" style="width: 100.0%; height: 100.0%;">Goslar, Im Schleeke 45<br>Preis: 1.009 €</div>`)[0];
+                popup_8584310fca4588b5bdd9375b62225d0e.setContent(html_633accfd9c162496926a6a9b068b9caa);
+            
+        
+
+        marker_40b6274baff248f26d25496c81e922f4.bindPopup(popup_8584310fca4588b5bdd9375b62225d0e)
+        ;
+
+        
+    
+    
+            marker_40b6274baff248f26d25496c81e922f4.bindTooltip(
+                `<div>
+                     Goslar, Im Schleeke 45
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7a381b3e13485f49bd14a7ceb7bd422c = L.marker(
+                [51.93063, 10.41366],
+                {}
+            ).addTo(map_26577c088fbc0c0bbe959ae6dda1685e);
+        
+    
+        var popup_96fcd6bd08cedb34cf10b096a0697035 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f0837467f3f193accc6bc1a41e05e5af = $(`<div id="html_f0837467f3f193accc6bc1a41e05e5af" style="width: 100.0%; height: 100.0%;">Raiffeisen Enovia GmbH & Co. KG<br>Preis: 1.009 €</div>`)[0];
+                popup_96fcd6bd08cedb34cf10b096a0697035.setContent(html_f0837467f3f193accc6bc1a41e05e5af);
+            
+        
+
+        marker_7a381b3e13485f49bd14a7ceb7bd422c.bindPopup(popup_96fcd6bd08cedb34cf10b096a0697035)
+        ;
+
+        
+    
+    
+            marker_7a381b3e13485f49bd14a7ceb7bd422c.bindTooltip(
+                `<div>
+                     Raiffeisen Enovia GmbH & Co. KG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ee99a16fe566e531bb255d2314e922e9 = L.marker(
+                [51.907543, 10.438619],
+                {}
+            ).addTo(map_26577c088fbc0c0bbe959ae6dda1685e);
+        
+    
+        var popup_3653d1f8a7b95cf139419ea48ca7ee87 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9bef0e13b55c70f06cd979c895c765fd = $(`<div id="html_9bef0e13b55c70f06cd979c895c765fd" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_3653d1f8a7b95cf139419ea48ca7ee87.setContent(html_9bef0e13b55c70f06cd979c895c765fd);
+            
+        
+
+        marker_ee99a16fe566e531bb255d2314e922e9.bindPopup(popup_3653d1f8a7b95cf139419ea48ca7ee87)
+        ;
+
+        
+    
+    
+            marker_ee99a16fe566e531bb255d2314e922e9.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_924f33776bae4698c81c73a25b8b9943 = L.marker(
+                [51.912697, 10.421956],
+                {}
+            ).addTo(map_26577c088fbc0c0bbe959ae6dda1685e);
+        
+    
+        var popup_fe4b93d6f450b0f45c95fdfb9acb38b6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b57eae9e8e6c52411790f098cf837cc5 = $(`<div id="html_b57eae9e8e6c52411790f098cf837cc5" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_fe4b93d6f450b0f45c95fdfb9acb38b6.setContent(html_b57eae9e8e6c52411790f098cf837cc5);
+            
+        
+
+        marker_924f33776bae4698c81c73a25b8b9943.bindPopup(popup_fe4b93d6f450b0f45c95fdfb9acb38b6)
+        ;
+
+        
+    
+    
+            marker_924f33776bae4698c81c73a25b8b9943.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c5680463a205fb1b0254f90100bdb77c = L.marker(
+                [51.922005, 10.438066],
+                {}
+            ).addTo(map_26577c088fbc0c0bbe959ae6dda1685e);
+        
+    
+        var popup_3a91655d6866eee21c198e0347501482 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fde5d80ad34ff41cdb7013f8f91dce35 = $(`<div id="html_fde5d80ad34ff41cdb7013f8f91dce35" style="width: 100.0%; height: 100.0%;">Aral Tankstelle<br>Preis: 1.009 €</div>`)[0];
+                popup_3a91655d6866eee21c198e0347501482.setContent(html_fde5d80ad34ff41cdb7013f8f91dce35);
+            
+        
+
+        marker_c5680463a205fb1b0254f90100bdb77c.bindPopup(popup_3a91655d6866eee21c198e0347501482)
+        ;
+
+        
+    
+    
+            marker_c5680463a205fb1b0254f90100bdb77c.bindTooltip(
+                `<div>
+                     Aral Tankstelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

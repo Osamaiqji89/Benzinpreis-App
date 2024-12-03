@@ -1,9 +1,6 @@
 
 /* light.qss */
-QWidget {
-    background-color: rgb(200, 200, 200);
-	color:rgb(70, 70, 70);
-}
+/*QWidget {background-color: #eef0d5 ;color:rgb(70, 70, 70);}*/
 
 QPushButton {
 	background:rgb(220, 220, 220);
@@ -216,13 +213,12 @@ QTreeWidget {
 
 /* Stil für die Kopfzeile */
 QTreeWidget::header {
-    background-color: rgb(209, 209, 209);
+    background-color: rgba(209, 209, 209, 0);
     font-weight: bold;
 }
 
 QHeaderView::section {
-    background-color: rgb(209, 209, 209);
-    color: #717171;
+    background-color: rgba(209, 209, 209, 0);
     border: none;
     padding-left: 85px;
 }
