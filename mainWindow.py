@@ -15,6 +15,7 @@ from UIHelper import UIHelper
 from PyQt6.QtWidgets import QTableWidgetItem
 from PyQt6.QtWidgets import QTableWidget, QTableWidgetItem, QHeaderView
 from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QIcon
 
 
 class MainWindow(QMainWindow):
@@ -24,6 +25,7 @@ class MainWindow(QMainWindow):
         load_dotenv("resources/env/tankerkoenig.env")
         
         self.setWindowTitle("Benzinpreis App")
+        self.setWindowIcon(QIcon("resources/icons/station.ico"))
         self.setGeometry(200, 200, 1200, 800)
         self.api_key = os.getenv("API_KEY")
         self.radius = 5

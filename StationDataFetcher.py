@@ -13,10 +13,7 @@ class StationDataFetcher:
         try:
             loca = f"lat={lat}&lng={lon}&rad={radius}"
             opti = "&sort=price&type="+fuel_type+"&apikey="
-            url = (
-                f"{self.base_url}{self.func}lat={lat}&lng={lon}&rad={radius}"
-                f"&sort=price&type={fuel_type}&apikey={self.api_key}"
-            )
+            url = (self.base_url + self.func + loca + opti + self.api_key)
             response = urllib.request.urlopen(url, context=ssl.create_default_context())
             data = json.loads(response.read())
             return data.get("stations", [])
