@@ -10,6 +10,9 @@ python = "^3.13"
 python-dotenv = "^1.0.1"
 pyqt6 = "^6.7.1"
 requests = "^2.32.3"
+geopy = "^2.4.1"
+pyqt6-webengine = "^6.7.0"
+folium = "^0.18.0"
 
 
 [build-system]

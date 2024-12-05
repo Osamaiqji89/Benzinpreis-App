@@ -1,8 +1,9 @@
 import folium
+from PyQt6.QtWebEngineWidgets import QWebEngineView
 
 class MapManager:
-    def __init__(self, map_view):
-        self.map_view = map_view
+    def __init__(self, map_view: QWebEngineView):
+        self.map_view: QWebEngineView = map_view
 
     def create_map(self, stations, lat, lon, rad):
         map_center = [lat, lon]

@@ -1,26 +1,29 @@
-import sys
-from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLineEdit, QGridLayout, QPushButton, QTextEdit, QListWidget
-from PyQt6.QtCore import QUrl
-from PyQt6 import uic
 import os
 from PyQt6.uic import loadUi
 from dotenv import load_dotenv
-import folium
 from PyQt6.QtWebEngineWidgets import QWebEngineView
-from geopy.geocoders import Nominatim
 from LocationService import LocationService
 from StationDataFetcher import StationDataFetcher
 from MapManager import MapManager
 from UIHelper import UIHelper
-from PyQt6.QtWidgets import QTableWidgetItem
-from PyQt6.QtWidgets import QTableWidget, QTableWidgetItem, QHeaderView
-from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import (QMainWindow, QTableWidget, QTableWidgetItem, QHeaderView, 
+    QGridLayout, QTableWidget, QToolButton, QSlider, QLineEdit, QLabel)
 from PyQt6.QtGui import QIcon
-
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super(QMainWindow, self).__init__()
+
+        ## UI Elements from QT Designer see --> resources/ui/mainWindow.ui
+        self.gridLayout_3: QGridLayout
+        self.station_Table: QTableWidget
+        self.btnDiesel: QToolButton
+        self.horiSliderRadius: QSlider
+        self.search_button: QToolButton
+        self.edtSearch: QLineEdit
+        self.btnSuperE10: QToolButton
+        self.btnSuperPlus: QToolButton
+        self.lblRadius: QLabel
+
         loadUi("resources/ui/mainWindow.ui", self)
         load_dotenv("resources/env/tankerkoenig.env")
         
@@ -31,7 +34,7 @@ class MainWindow(QMainWindow):
         self.radius = 5
         self.fetcher = StationDataFetcher(self.api_key)
         self.location_service = LocationService()
-        self.map_view = QWebEngineView()
+        self.map_view: QWebEngineView = QWebEngineView()
         self.gridLayout_3.addWidget(self.map_view)
         self.map_manager = MapManager(self.map_view)
         self.setup_connectiions()

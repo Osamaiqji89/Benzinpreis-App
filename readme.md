@@ -1,12 +1,12 @@
 # Project Name
 
-*todo*
+Benzin Preis App
 
 ---
 
 ## Description
 
-*todo*
+The Benzin Preis App is a user-friendly application designed to help users track and compare fuel prices in Germany. By leveraging Tankerkoenig data and providing a simple interface, the app empowers users to make informed decisions about where to refuel and save money.
 
 ---
 
@@ -82,9 +82,7 @@ Contributions are welcome! Please feel free to open issues or submit pull reques
 
 ## Author
 
-- Author one
-- Author two
-
+Donald, Osama, Frank, Moahamed, Asfour
 
 ---
 
