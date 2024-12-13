@@ -1,2 +1,5 @@
 python-dotenv
 pyqt6
+PyQt6-WebEngine
+geopy
+folium
