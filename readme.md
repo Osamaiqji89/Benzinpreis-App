@@ -12,7 +12,7 @@ The Benzin Preis App is a user-friendly application designed to help users track
 
 ## Documentation
 
-Access our fuel price database file on [OneDrive](https://1drv.ms/u/s!AqU7MuLun5rPg0LTbiYL1BFk-EWM?e=dZpJ6o). This database contains historical fuel price data used by the application.
+Access our fuel price database file on [OneDrive](https://1drv.ms/u/s!AqU7MuLun5rPg0LTbiYL1BFk-EWM?e=dZpJ6o). Download and place this database file in the `resources/database/` directory of your local project. This database contains historical fuel price data used by the application.
 
 ---
 
