@@ -8,7 +8,7 @@ from utils.StatusLogger import StatusLogger
 
 class FuelPriceDB:
     def __init__(self):
-        self.db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources\\Database\\fuel_prices.db')
+        self.db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources/Database/fuel_prices.db')
         self.conn = sqlite3.connect(self.db_path)
         self.cursor = self.conn.cursor()
 
