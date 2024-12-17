@@ -22,14 +22,19 @@ class LocationService:
         return self.lat, self.lon
 
     def lon_lat_city(self, cityName):
-        self.name = cityName
-        geolocator = Nominatim(user_agent="MyApp")
-        location = geolocator.geocode(cityName, country_codes="de")
-        if not location:
-            raise Exception("Wrong city name", 404)
-        self.lat = location.latitude
-        self.lon = location.longitude
-        return self.get_lat_lon()
+        try:
+            self.name = cityName
+            geolocator = Nominatim(user_agent="MyApp")
+            location = geolocator.geocode(cityName, country_codes="de")
+            if not location:
+                StatusLogger.error(f"Stadt '{cityName}' wurde nicht gefunden")
+                return None, None
+            self.lat = location.latitude
+            self.lon = location.longitude
+            return self.get_lat_lon()
+        except Exception as e:
+            StatusLogger.error(f"Fehler bei der Stadtsuche: {e}")
+            return None, None
 
     def get_lat_lon(self):
         try:
@@ -37,6 +42,7 @@ class LocationService:
             return self.lat, self.lon
         except Exception as e:
             StatusLogger.error(f"Location error: {e}")
+            return None, None
 
     def get_postal_code(self, lat, lon):
         """
@@ -48,12 +54,15 @@ class LocationService:
             str: postal code or None if not found
         """
         try:
+            if lat is None or lon is None:
+                StatusLogger.error("Ungültige Koordinaten")
+                return None
             geolocator = Nominatim(user_agent="MyApp")
             location = geolocator.reverse((lat, lon), language="de")
-            if location and location.raw.get('address'):
-                return location.raw['address'].get('postcode')
+            if location and "address" in location.raw:
+                return location.raw["address"].get("postcode")
+            StatusLogger.error("Keine PLZ für diese Koordinaten gefunden")
             return None
         except Exception as e:
-            #print(f"Error getting postal code: {e}")
-            StatusLogger.error(f"Error getting postal code: {e}")
+            StatusLogger.error(f"Fehler bei der PLZ-Suche: {e}")
             return None
