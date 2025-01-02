@@ -1,5 +1,8 @@
 python-dotenv
 pyqt6
-PyQt6-WebEngine
+requests
 geopy
+PyQt6-WebEngine
 folium
+pandas
+matplotlib
