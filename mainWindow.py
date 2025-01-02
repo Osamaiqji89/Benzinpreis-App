@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtWidgets import (QMainWindow, QTableWidget, QTableWidgetItem, QHeaderView, 
     QGridLayout, QTableWidget, QToolButton, QSlider, QLineEdit, QLabel, QWidget, QVBoxLayout, QSizePolicy,
-    QPushButton, QCheckBox, QSpinBox)
+    QPushButton, QCheckBox, QSpinBox, QStackedWidget)
 from PyQt6.QtGui import QIcon, QMovie
 from PyQt6.QtCore import Qt, QByteArray, QTimer
 from services.StationDataFetcher import StationDataFetcher
@@ -55,6 +55,14 @@ class MainWindow(QMainWindow):
         self.btnAddToFavorites: QToolButton
         self.btnFavorites: QToolButton
         self.spBoxRadius: QSpinBox
+        self.gridLayoutHistory: QGridLayout
+        self.centralStackedWidget: QStackedWidget
+        self.stackedWidget: QStackedWidget
+        self.lblOpen: QLabel
+        self.lblStatioName: QLabel
+        self.lblAddress: QLabel
+        self.lblDieselPrice: QLabel
+        self.lcdE10: QLabel
         loadUi("resources/ui/mainWindow.ui", self)
         load_dotenv("resources/env/tankerkoenig.env")
         self.setWindowTitle("Benzinpreis App")
@@ -81,6 +89,8 @@ class MainWindow(QMainWindow):
         self.gridLayoutHistory.addWidget(self.loading_player, 0, 0, -1, -1, Qt.AlignmentFlag.AlignCenter)
 
     def setup_ui(self):
+        """Setup the UI elements"""
+
         self.btnDiesel.setChecked(True)
         self.stackedWidget.setCurrentIndex(0)
         self.centralStackedWidget.setCurrentIndex(0)
@@ -90,6 +100,8 @@ class MainWindow(QMainWindow):
         self.btnBackToHome.setVisible(False)
         
     def setup_connectiions(self):
+        """Setup the connections for the UI elements"""
+
         self.horiSliderRadius.valueChanged.connect(self.update_radius)
         self.search_button.clicked.connect(self.go_to_my_location)
         self.edtSearch.returnPressed.connect(self.search_stations_by_city_or_zip)
@@ -107,15 +119,21 @@ class MainWindow(QMainWindow):
         self.btnFavorites.clicked.connect(self.show_favorites_only)
 
     def update_radius(self):
+        """Update the radius of the search"""
+
         self.radius = self.horiSliderRadius.value()
         self.on_BackToHome_clicked()
         self.reload_stations()
         self.spBoxRadius.setValue(self.radius)
 
     def update_Radius_From_SpinBox(self):
+        """Update the radius of the search from the spinbox"""
+
         self.horiSliderRadius.setValue(self.spBoxRadius.value())
     
     def go_to_my_location(self):
+        """Get the location of the user and load the stations and map"""
+
         self.on_BackToHome_clicked()
         lat, lon = self.location_service.get_location_by_ip()
         self.radius = self.horiSliderRadius.value()
@@ -123,18 +141,29 @@ class MainWindow(QMainWindow):
         self.spBoxRadius.setValue(self.radius)
 
     def search_stations_by_city_or_zip(self):
+        """Search for stations by city or zip code"""
+
         self.on_BackToHome_clicked()
         city_or_zip = self.edtSearch.text().strip()
         lat, lon = self.location_service.lon_lat_city(city_or_zip)
         self.load_stations_and_map(lat, lon, self.radius)
 
     def load_stations_and_map(self, lat, lon, rad):
+        """
+        Load the stations and map
+        :param lat: Latitude
+        :param lon: Longitude
+        :param rad: Radius
+        """
+
         fuel_type = self.get_fuel_type()
         stations = self.fetcher.fetch_stations(lat, lon, fuel_type, rad, self.isFavorite)
         UIHelper.populate_station_table(self.station_Table, stations)
         self.map_manager.create_map(stations, lat, lon, rad)
 
     def get_fuel_type(self):
+        """Get the fuel type"""
+
         if self.btnDiesel.isChecked():
             return "diesel"
         elif self.btnSuperE10.isChecked():
@@ -145,6 +174,8 @@ class MainWindow(QMainWindow):
             return None
 
     def on_Diesele_clicked(self):
+        """Diesel button clicked"""
+
         self.btnDiesel.setChecked(True)
         self.btnSuperE10.setChecked(False)
         self.btnSuperPlus.setChecked(False)
@@ -152,6 +183,8 @@ class MainWindow(QMainWindow):
         self.reload_stations()
 
     def on_SuperE10_clicked(self):
+        """Super E10 button clicked"""
+
         self.btnDiesel.setChecked(False)
         self.btnSuperE10.setChecked(True)
         self.btnSuperPlus.setChecked(False)
@@ -159,6 +192,8 @@ class MainWindow(QMainWindow):
         self.reload_stations()
 
     def on_SuperPlus_clicked(self):
+        """Super Plus button clicked"""
+
         self.btnDiesel.setChecked(False)
         self.btnSuperE10.setChecked(False)
         self.btnSuperPlus.setChecked(True)
@@ -166,30 +201,46 @@ class MainWindow(QMainWindow):
         self.reload_stations()
 
     def on_History_clicked(self):
+        """History button clicked"""
+
         self.loadHistory()
         self.centralStackedWidget.setCurrentIndex(1)
         self.btnHistory.setVisible(False)
         self.btnBackToHome.setVisible(True)
+
     def on_HistoryCity_clicked(self):
+        """History button clicked"""
+
         self.loading_player.start()
         QTimer.singleShot(100, self.loadCityHistory)
+
     def on_BackToHome_clicked(self):
+        """Back to home button clicked"""
+
         self.centralStackedWidget.setCurrentIndex(0)
         self.btnHistory.setVisible(True)
         self.btnBackToHome.setVisible(False)
 
     def on_backToStations_clicked(self):
+        """Back to stations button clicked"""
+
         self.stackedWidget.setCurrentIndex(0)
         
     def reload_stations(self):
+        """Reload the stations"""
+
         lat, lon = self.location_service.get_lat_lon()
         self.load_stations_and_map(lat, lon, self.radius)
 
     def loadHistory(self):
+        """Load the history"""
+
         fuel_type = self.get_fuel_type()
         self.history.create_price_history_plot(fuel_type)
 
     def loadCityHistory(self):
+        """Load the city history"""
+
         try:
             lat, lon = self.location_service.get_lat_lon()
             selected_fuel_type = self.get_fuel_type()
@@ -208,6 +259,8 @@ class MainWindow(QMainWindow):
             self.loading_player.stop()
 
     def on_station_clicked(self):
+        """Station clicked"""
+
         lat, lon = self.location_service.get_lat_lon()
         stations = self.fetcher.fetch_stations(lat, lon, "diesel", self.radius, self.isFavorite)
 
@@ -243,6 +296,8 @@ class MainWindow(QMainWindow):
             self.stackedWidget.setCurrentIndex(1)
 
     def toggle_favorite(self):
+        """Toggle favorite"""
+
         if self.station_id:
             if self.fuelPriceDB.is_favorite(self.station_id):
                 self.fuelPriceDB.remove_from_favorites(self.station_id)
@@ -255,6 +310,8 @@ class MainWindow(QMainWindow):
             StatusLogger.error("Keine Tankstelle ausgewählt")
 
     def show_favorites_only(self):
+        """Show favorites only"""
+        
         self.isFavorite = not self.isFavorite
         lat, lon = self.location_service.get_lat_lon()
         self.load_stations_and_map(lat, lon, self.radius)

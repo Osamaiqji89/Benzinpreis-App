@@ -11,6 +11,7 @@ class StationDataFetcher:
         self.func = "list.php?"
 
     def fetch_stations(self, lat, lon, fuel_type, radius, isFavorites):
+        """ Fetch stations from Tankerkönig API """
         try:
             StatusLogger.log(f"Fetching stations: lat={lat}, lon={lon}, fuel={fuel_type}, radius={radius}")
             

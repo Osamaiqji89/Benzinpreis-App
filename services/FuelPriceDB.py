@@ -13,6 +13,7 @@ class FuelPriceDB:
         self.cursor = self.conn.cursor()
 
     def add_to_favorites(self, station_id):
+        """Add a station to the favorites list."""
         try:
             self.cursor.execute('INSERT OR REPLACE INTO favorites (station_id) VALUES (?)', (station_id,))
             self.conn.commit()
@@ -22,6 +23,7 @@ class FuelPriceDB:
             return False
 
     def remove_from_favorites(self, station_id):
+        """Remove a station from the favorites list."""
         try:
             self.cursor.execute('DELETE FROM favorites WHERE station_id = ?', (station_id,))
             self.cursor.execute('DELETE FROM favorites WHERE station_id = ""')
@@ -33,10 +35,12 @@ class FuelPriceDB:
             return False
 
     def is_favorite(self, station_id):
+        """Check if a station is in the favorites list."""
         self.cursor.execute('SELECT station_id FROM favorites WHERE station_id = ?', (station_id,))
         return self.cursor.fetchone() is not None
 
     def get_favorite_stations(self):
+        """Get a list of all favorite stations."""
         self.cursor.execute('SELECT station_id FROM favorites')
         return [row[0] for row in self.cursor.fetchall()]
 

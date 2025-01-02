@@ -10,6 +10,7 @@ class LocationService:
         self.lat = 0.0
 
     def get_location_by_ip(self):
+        """ Get location by IP address """
         try:
             response = requests.get("https://ipinfo.io", timeout=5)
             response.raise_for_status()  # Raises an HTTPError for bad responses
@@ -22,6 +23,7 @@ class LocationService:
         return self.lat, self.lon
 
     def lon_lat_city(self, cityName):
+        """ Get coordinates by city name """
         try:
             self.name = cityName
             geolocator = Nominatim(user_agent="MyApp")
@@ -37,6 +39,7 @@ class LocationService:
             return None, None
 
     def get_lat_lon(self):
+        """ Get latitude and longitude """
         try:
             StatusLogger.log("Fetching location...")
             return self.lat, self.lon
