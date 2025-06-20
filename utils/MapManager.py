@@ -1,5 +1,4 @@
 import folium
-import math
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from utils.StatusLogger import StatusLogger
 from services.FuelPriceDB import FuelPriceDB
@@ -14,8 +13,7 @@ class MapManager:
             my_map = folium.Map(location=map_center, zoom_start=13)
             # Dynamisch die Kartenbegrenzungen basierend auf dem Radius festlegen
             lat_offset = rad / 111.0  # 1° Breitengrad entspricht ca. 111 km
-            # 1° Längengrad variiert abhängig vom Breitengrad -> cos(lat)
-            lon_offset = rad / (111.0 * math.cos(math.radians(lat)))
+            lon_offset = rad / (111.0 * abs(lat))  # Berücksichtigt Breitenabhängigkeit
             bounds = [
                 [lat - lat_offset, lon - lon_offset],  # Südwest-Ecke
                 [lat + lat_offset, lon + lon_offset],  # Nordost-Ecke
