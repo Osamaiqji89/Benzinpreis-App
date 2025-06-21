@@ -2,6 +2,7 @@ import folium
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from utils.StatusLogger import StatusLogger
 from services.FuelPriceDB import FuelPriceDB
+from utils.path_utils import resource_path
 class MapManager:
     def __init__(self, map_view: QWebEngineView):
         self.map_view: QWebEngineView = map_view
@@ -38,7 +39,7 @@ class MapManager:
                     popup=folium.Popup(popup_html, max_width=250),  # Popup mit HTML-Inhalt
                     tooltip=tooltip_html,  # Tooltip mit HTML-Inhalt
                 ).add_to(my_map)
-            my_map.save("resources/map/map.html")
+            my_map.save(resource_path("resources/map/map.html"))
             self.map_view.setHtml(my_map.get_root().render())
             StatusLogger.success(f"Map loaded with {len(stations)} stations")
         except Exception as e:

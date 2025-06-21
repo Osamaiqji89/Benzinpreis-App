@@ -2,6 +2,7 @@ import os
 import uuid
 from PyQt6.uic import loadUi
 from dotenv import load_dotenv
+from utils.path_utils import resource_path
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtWidgets import (QMainWindow, QTableWidget, QTableWidgetItem, QHeaderView, 
     QGridLayout, QTableWidget, QToolButton, QSlider, QLineEdit, QLabel, QWidget, QVBoxLayout, QSizePolicy,
@@ -63,10 +64,10 @@ class MainWindow(QMainWindow):
         self.lblAddress: QLabel
         self.lblDieselPrice: QLabel
         self.lcdE10: QLabel
-        loadUi("resources/ui/mainWindow.ui", self)
-        load_dotenv("resources/env/tankerkoenig.env")
+        loadUi(resource_path("resources/ui/mainWindow.ui"), self)
+        load_dotenv(resource_path("resources/env/tankerkoenig.env"))
         self.setWindowTitle("Benzinpreis App")
-        self.setWindowIcon(QIcon("resources/icons/station.ico"))
+        self.setWindowIcon(QIcon(resource_path("resources/icons/station.ico")))
         self.setGeometry(200, 200, 1200, 800)
         self.api_key = os.getenv("API_KEY")
         self.radius = 5
@@ -85,7 +86,7 @@ class MainWindow(QMainWindow):
         StatusLogger.set_status_bar(self.statusBar)
         MainWindow._status_bar = self.statusBar
 
-        self.loading_player = UIHelper.create_image_player("resources/icons/loading.gif", self.centralStackedWidget.widget(1))
+        self.loading_player = UIHelper.create_image_player(resource_path("resources/icons/loading.gif"), self.centralStackedWidget.widget(1))
         self.gridLayoutHistory.addWidget(self.loading_player, 0, 0, -1, -1, Qt.AlignmentFlag.AlignCenter)
 
     def setup_ui(self):
@@ -94,8 +95,8 @@ class MainWindow(QMainWindow):
         self.btnDiesel.setChecked(True)
         self.stackedWidget.setCurrentIndex(0)
         self.centralStackedWidget.setCurrentIndex(0)
-        UIHelper.apply_stylesheet(self, "resources/stylesheets/lightStyle.qss")
-        UIHelper.load_fonts('resources/fonts/SitkaVF.ttf')
+        UIHelper.apply_stylesheet(self, resource_path("resources/stylesheets/lightStyle.qss"))
+        UIHelper.load_fonts(resource_path('resources/fonts/SitkaVF.ttf'))
         self.go_to_my_location()
         self.btnBackToHome.setVisible(False)
         

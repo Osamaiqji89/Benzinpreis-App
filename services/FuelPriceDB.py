@@ -1,6 +1,7 @@
 import sqlite3
 import os
 import csv
+from utils.path_utils import resource_path
 import pandas as pd
 from datetime import datetime
 from typing import Dict, List, Tuple
@@ -8,7 +9,7 @@ from utils.StatusLogger import StatusLogger
 
 class FuelPriceDB:
     def __init__(self):
-        self.db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources/Database/fuel_prices.db')
+        self.db_path = resource_path('resources/Database/fuel_prices.db')
         self.conn = sqlite3.connect(self.db_path)
         self.cursor = self.conn.cursor()
 
