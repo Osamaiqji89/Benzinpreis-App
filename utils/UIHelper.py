@@ -3,6 +3,7 @@ from PyQt6.QtGui import QIcon, QFont, QMovie, QFontDatabase
 from PyQt6.QtCore import Qt, QByteArray
 
 from services.FuelPriceDB import FuelPriceDB
+from utils.path_utils import resource_path
 
 class UIHelper:
     @staticmethod
@@ -25,7 +26,7 @@ class UIHelper:
             table.setItem(row_idx, 0, QTableWidgetItem(f"{station.get('brand', 'Unbekannt')} Tankstelle"))
             table.setItem(row_idx, 1, QTableWidgetItem(f"{station.get('price', 'N/A')} €"))
             icon_item = QTableWidgetItem()
-            icon_item.setIcon(QIcon("resources/icons/arrow.png"))
+            icon_item.setIcon(QIcon(resource_path("resources/icons/arrow.png")))
             table.setItem(row_idx, 2, icon_item)
             table.setRowHeight(row_idx, 50)
             row_idx += 1
@@ -33,7 +34,7 @@ class UIHelper:
     @staticmethod
     def load_fonts(path):
         QFontDatabase.addApplicationFont(path)
-        app_font = QFont('resources/fonts/SitkaVF.ttf')
+        app_font = QFont(resource_path('resources/fonts/SitkaVF.ttf'))
         QApplication.setFont(app_font)
 
     @staticmethod
