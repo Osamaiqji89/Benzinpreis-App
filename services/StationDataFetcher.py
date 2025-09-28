@@ -22,16 +22,32 @@ class StationDataFetcher:
             response = urllib.request.urlopen(url, context=ssl.create_default_context())
             data = json.loads(response.read())
             
-            stations = data.get("stations", [])
+            stations = data.get("stations", []) or []
             StatusLogger.success(f"Found {len(stations)} stations")
             if isFavorites:
                 favorite_stations = []
                 for station in stations:
-                    if FuelPriceDB().is_favorite(station['id']):
+                    if not station:
+                        StatusLogger.log("Skipping empty station entry")
+                        continue
+                    sid = station.get('id')
+                    if sid is None:
+                        StatusLogger.log(f"Skipping station without id: {station}")
+                        continue
+                    if FuelPriceDB().is_favorite(sid):
                         favorite_stations.append(station)
                 return favorite_stations
             else:
-                return stations
+                # Ensure stations is a list of dicts with required keys
+                cleaned = []
+                for s in stations:
+                    if not s:
+                        continue
+                    if 'lat' not in s or 'lng' not in s or 'price' not in s:
+                        StatusLogger.log(f"Station missing expected keys, skipping: {s}")
+                        continue
+                    cleaned.append(s)
+                return cleaned
         except Exception as e:
             StatusLogger.error(f"Fehler beim Abrufen der Daten: {e}")
             return []

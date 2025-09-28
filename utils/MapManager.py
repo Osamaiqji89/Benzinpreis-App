@@ -21,20 +21,31 @@ class MapManager:
             my_map.fit_bounds(bounds)
             my_map.options["maxBounds"] = bounds
             for station in stations:
+                if not station or not isinstance(station, dict):
+                    StatusLogger.log(f"Skipping invalid station entry: {station}")
+                    continue
+                name = station.get('name', 'unbekannt')
+                price = station.get('price', 'n/a')
+                lat_s = station.get('lat')
+                lng_s = station.get('lng')
+                if lat_s is None or lng_s is None:
+                    StatusLogger.log(f"Skipping station without coordinates: {station}")
+                    continue
+
                 popup_html = f"""
                     <div style="font-size:14px; font-weight:bold; color:darkblue;">
-                        <p>{station['name']}</p>
-                        <p>Preis: <span style="color:green;">{station['price']} €</span></p>
+                        <p>{name}</p>
+                        <p>Preis: <span style="color:green;">{price} €</span></p>
                     </div>
                 """
                 # Style für Tooltip
                 tooltip_html = f"""
                     <div style="font-size:12px; color:darkblue;">
-                        {station['name']}
+                        {name}
                     </div>
                 """
                 folium.Marker(
-                    location=[station["lat"], station["lng"]],
+                    location=[lat_s, lng_s],
                     popup=folium.Popup(popup_html, max_width=250),  # Popup mit HTML-Inhalt
                     tooltip=tooltip_html,  # Tooltip mit HTML-Inhalt
                 ).add_to(my_map)

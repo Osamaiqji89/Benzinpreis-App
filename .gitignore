@@ -1,4 +1,11 @@
 __pycache__
-venv
+.venv
 poetry.lock
 *.db
+.qodo
+*.env
+.DS_Store
+.vscode
+.idea
+*.html
+*.css
